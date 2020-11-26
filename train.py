@@ -5,7 +5,7 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_palette('cool')
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score, f1_score, recall_score 
@@ -46,7 +46,7 @@ X_test = scaler_x.transform(X_test)
 accuracies = [] 
 
 #@ Initializing the Logistic Regression Algorithm 
-classifier = LogisticRegression()
+classifier = RandomForestClassifier()
 
 #@ Fitting the classifier 
 classifier.fit(X_train, y_train) 
