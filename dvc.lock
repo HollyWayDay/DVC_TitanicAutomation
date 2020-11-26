@@ -1,0 +1,26 @@
+get_data:
+  cmd: python get_data.py
+  deps:
+  - path: get_data.py
+    md5: ada7316468050a0ea264b97da67cad0e
+    size: 155
+  outs:
+  - path: titanic.csv
+    md5: 61fdd54abdbf6a85b778e937122e1194
+    size: 61194
+train:
+  cmd: python train.py
+  deps:
+  - path: titanic.csv
+    md5: 61fdd54abdbf6a85b778e937122e1194
+    size: 61194
+  - path: train.py
+    md5: c8a73ca95736c3f8ab5dc814613155e1
+    size: 2304
+  outs:
+  - path: fig1_accu.png
+    md5: e7768bc26f489e0c33271a9544c8045f
+    size: 8488
+  - path: metrics.json
+    md5: 2a3b309da78036c1e8317ed759498159
+    size: 99

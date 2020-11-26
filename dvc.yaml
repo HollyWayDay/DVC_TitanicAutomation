@@ -1,0 +1,17 @@
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - get_data.py
+    outs:
+    - titanic.csv
+  train:
+    cmd: python train.py
+    deps:
+    - train.py
+    - titanic.csv
+    outs:  
+    - fig1_accu.png
+    metrics: 
+    - metrics.json:
+        cache: false
