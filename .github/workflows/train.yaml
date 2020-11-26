@@ -1,0 +1,21 @@
+name: farmers
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env:
+          repo_token: ${{ secrets.GH_TOKEN }}
+        run: |
+          pip install -r requirements.txt
+          dvc repro 
+          git fetch --prune
+          dvc metrics diff --show-md main > report.md
+          
+          # Add figure to the report
+          echo "## Accuracy Viz Plot"
+          cml-publish fig1_accu.png --md >> report.md
+          cml-send-comment report.md 
