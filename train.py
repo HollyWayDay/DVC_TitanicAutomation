@@ -46,7 +46,7 @@ X_test = scaler_x.transform(X_test)
 accuracies = [] 
 
 #@ Initializing the Logistic Regression Algorithm 
-classifier = RandomForestClassifier(n_estimators=1000, criterion='gini')
+classifier = RandomForestClassifier(n_estimators=1500, criterion='gini')
 
 #@ Fitting the classifier 
 classifier.fit(X_train, y_train) 
