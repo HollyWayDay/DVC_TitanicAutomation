@@ -35,7 +35,7 @@ X = df.iloc[:, 1:8].values
 y = df.iloc[:, 0].values 
 
 # Splitting the dataset into training and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.17)  
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)  
 
 # Feature Scaling
 scaler_x = MinMaxScaler((-1,1))
@@ -46,7 +46,7 @@ X_test = scaler_x.transform(X_test)
 accuracies = [] 
 
 #@ Initializing the Logistic Regression Algorithm 
-classifier = RandomForestClassifier(n_estimators=1500, criterion='gini')
+classifier = RandomForestClassifier(n_estimators=1700, criterion='gini')
 
 #@ Fitting the classifier 
 classifier.fit(X_train, y_train) 
